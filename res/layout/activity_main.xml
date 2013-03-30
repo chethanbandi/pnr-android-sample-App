@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+ 	<fragment
+ 	    android:id="@+id/input_pnr_fragment"
+ 	    android:name="com.cbandi.pnr.InputPnrFragment"
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_weight="0"
+ 	    tools:layout="@layout/fragment_input_pnr" />
+ 	         
+ 	<fragment
+ 	    android:id="@+id/scan_sms_pnr_fragment"
+ 	    android:name="com.cbandi.pnr.ScanSmsPnrFragment"
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_weight="0"
+ 	    tools:layout="@layout/fragment_scan_sms_pnr" />
+ 	
+ 	<fragment
+ 	    android:id="@+id/lanch_irctc_fragment"
+ 	    android:name="com.cbandi.pnr.LanchIrctcFragment"
+ 	    android:layout_width="match_parent"
+ 	    android:layout_height="wrap_content"
+ 	    android:layout_weight="0"
+ 	    tools:layout="@layout/fragment_action_list" />
+ 	
+</LinearLayout>
