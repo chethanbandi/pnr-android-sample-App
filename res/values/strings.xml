@@ -11,6 +11,6 @@
     <string name="sms_empty_text">No travel SMS found from IRCTC</string>
     <string name="loading">Loading&#8230;</string>
     <string name="pnr_length">PNR number should be 10 digits</string>
-    <string name="lanch_irctc">IRCTC</string>
+    <string name="lanch_irctc">mIRCTC</string>
 
 </resources>
