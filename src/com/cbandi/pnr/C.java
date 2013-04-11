@@ -12,8 +12,10 @@ public class C {
 	public static final int PNR_QUERY_CONN_TIMEOUT = 15000;
 	public static final int PNR_QUERY_READ_TIMEOUT = 10000;
 	
-	public static final String INTERNAL_ERROR_GENERIC_MESSAGE = "An error occurred while getting the pnr status. Please try again";
-	public static final int INTERNAL_ERROR_GENERIC_CODE = 1;
+	public static final String STATUS_MESSAGE_GENERIC_ERROR = "An error occurred while getting the pnr status. Please try again";
+	public static final int STATUS_CODE_GENERIC_ERROR = 1;
+	public static final String STATUS_MESSAGE_NO_CONNECTION = "No internet connection";
+	public static final int STATUS_CODE_NO_CONNECTION = 2;
 	
 	public static final String KEY_TRAIN_NUMBER = "TrainNumber";
 	public static final String KEY_TRAIN_NAME = "TrainName";

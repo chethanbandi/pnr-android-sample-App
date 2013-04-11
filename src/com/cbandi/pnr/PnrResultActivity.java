@@ -42,6 +42,9 @@ public class PnrResultActivity extends Activity {
     	if(networkInfo != null && networkInfo.isConnected()) {
     		new DownloadWebpageText().execute(pnr);
     	} else {
+    		TextView resultView = (TextView)findViewById(R.id.pnr_result_view);
+			resultView.setText(C.STATUS_MESSAGE_GENERIC_ERROR);
+
     		Log.d(C.DEBUG_TAG, "There is no network");
     	}
     	
@@ -113,7 +116,7 @@ public class PnrResultActivity extends Activity {
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
-				message = C.INTERNAL_ERROR_GENERIC_MESSAGE;
+				message = C.STATUS_MESSAGE_GENERIC_ERROR;
 			}
 														
 			resultView.setText(message);
