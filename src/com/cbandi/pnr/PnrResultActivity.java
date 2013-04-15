@@ -85,31 +85,31 @@ public class PnrResultActivity extends Activity {
 				if(responseCode == 0) {				
 					StringBuilder sb = new StringBuilder();
 					
-					sb.append(C.LABEL_TRAIN_NUMBER + ":" + result.getString(C.KEY_TRAIN_NUMBER) + "\n");
-					sb.append(C.LABEL_TRAIN_NAME + ":" + result.getString(C.KEY_TRAIN_NAME) + "\n");
-					sb.append(C.LABEL_FROM + ":" + result.getString(C.KEY_FROM) + "\n");
-					sb.append(C.LABEL_TO + ":" + result.getString(C.KEY_TO) + "\n");
-					sb.append(C.LABEL_BOARDING_POINT + ":" + result.getString(C.KEY_BOARDING_POINT) + "\n");
-					sb.append(C.LABEL_RESERVED_UPTO + ":" + result.getString(C.KEY_RESERVED_UPTO) + "\n");
-					sb.append(C.LABEL_BOARDING_DATE + ":" + result.getString(C.KEY_BOARDING_DATE) + "\n");
-					sb.append(C.LABEL_CLASS + ":" + result.getString(C.KEY_CLASS) + "\n");
-					sb.append(C.LABEL_CHARTING_STATUS + ":" + result.getString(C.KEY_CHARTING_STATUS) + "\n\n");
-					
-					sb.append("Passenger PNR status...\n\n");
-					
+					sb.append(C.LABEL_CHARTING_STATUS + " : " + result.getString(C.KEY_CHARTING_STATUS) + "\n\n");
+
 					JSONArray passengerList = result.getJSONArray(C.KEY_PASSENGER);
 					int size = passengerList.length();
+					
+					sb.append(C.LABEL_PASSENGER_NAME + " | " + C.LABEL_BOOKING_STATUS + " | " + C.LABEL_CURRENT_STATUS + "\n\n");
 					
 					for(int i = 0; i < size; i++) {
 						String name = passengerList.getJSONObject(i).getString(C.KEY_PASSENGER_NAME);
 						String cstatus = passengerList.getJSONObject(i).getString(C.KEY_CURRENT_STATUS);
 						String bstatus = passengerList.getJSONObject(i).getString(C.KEY_BOOKING_STATUS);
-						
-						sb.append(C.LABEL_PASSENGER_NAME + " : " + name + "\n");
-						sb.append(C.LABEL_CURRENT_STATUS + " : " + cstatus + "\n");
-						sb.append(C.LABEL_BOOKING_STATUS + " : " + bstatus + "\n\n");
+
+						sb.append(name + " | " + bstatus + " | " + cstatus + "\n");
 					}
-					
+
+					sb.append("\n");
+					sb.append(C.LABEL_TRAIN_NUMBER + " : " + result.getString(C.KEY_TRAIN_NUMBER) + "\n");
+					sb.append(C.LABEL_TRAIN_NAME + " : " + result.getString(C.KEY_TRAIN_NAME) + "\n");
+					sb.append(C.LABEL_FROM + " : " + result.getString(C.KEY_FROM) + "\n");
+					sb.append(C.LABEL_TO + " : " + result.getString(C.KEY_TO) + "\n");
+					sb.append(C.LABEL_BOARDING_POINT + " : " + result.getString(C.KEY_BOARDING_POINT) + "\n");
+					sb.append(C.LABEL_RESERVED_UPTO + " : " + result.getString(C.KEY_RESERVED_UPTO) + "\n");
+					sb.append(C.LABEL_BOARDING_DATE + " : " + result.getString(C.KEY_BOARDING_DATE) + "\n");
+					sb.append(C.LABEL_CLASS + " : " + result.getString(C.KEY_CLASS) + "\n");
+										
 					message = sb.toString();
 				} else {
 					message = result.getJSONObject(C.KEY_STATUS).getString(C.KEY_STATUS_MESSAGE);
