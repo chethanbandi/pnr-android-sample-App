@@ -10,7 +10,13 @@
     <string name="scan_sms">mTickets</string>
     <string name="sms_empty_text">No travel SMS found from IRCTC</string>
     <string name="loading">Loading&#8230;</string>
-    <string name="pnr_length">PNR number should be 10 digits</string>
+    
+    <string name="pnr_validation_length">PNR number should be 10 digits</string>
+    <string name="pnr_validation_non_numeric">PNR number should be numeric</string>
+    
     <string name="lanch_irctc">mIRCTC</string>
+    <string name="pnr_history_list_header">Previous PNRs</string>
+    <string name="no_m_tickets">No mTickets found</string>
+    <string name="pnr_history_file_key">com.cbandi.pnr.history</string>
 
 </resources>

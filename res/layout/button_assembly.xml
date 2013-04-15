@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/button_assembly"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    
+    <Button
+        android:id="@+id/scan_sms"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:onClick="scanSms"
+        android:text="@string/scan_sms" />
+
+    <Button
+        android:id="@+id/lanch_irctc"
+        android:layout_width="149dp"
+        android:layout_height="wrap_content"
+        android:onClick="lanchIrctc"
+        android:text="@string/lanch_irctc" />
+    
+</LinearLayout>

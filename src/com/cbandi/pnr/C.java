@@ -2,15 +2,22 @@ package com.cbandi.pnr;
 
 public class C {
 	public static final String DEBUG_TAG = "com.cbandi.pnr";
-	public static final String INTENT_PNR_DATA_KEY = "com.chethanbandi.PNR_DATA";
-	public static final String INTENT_PNR_KEY = "com.chethanbandi.PNR";
-	public static final String INTENT_SMS_LIST_KEY = "com.chethanbandi.SMS_LIST";
+	public static final String INTENT_KEY_PNR_DATA = "com.chethanbandi.PNR_DATA";
+	public static final String INTENT_KEY_PNR = "com.chethanbandi.PNR";
+	public static final String INTENT_KEY_SMS_LIST = "com.chethanbandi.SMS_LIST";
+	public static final String INTENT_KEY_HISTORY_LIST = "com.chethanbandi.HISTORY_LIST";
 	
-	public static final String CHAR_SET = "UTF-8";
+	public static final String IRCTC_MOBILE_WEB_URL = "https://irctc.co.in/mobile";
 	public static final String PNR_URL = "http://apps.sairahul.com/pnr/v1/";
+	public static final String CHAR_SET = "UTF-8";
 	public static final String PNR_QUERY_METHOD = "GET";
 	public static final int PNR_QUERY_CONN_TIMEOUT = 15000;
 	public static final int PNR_QUERY_READ_TIMEOUT = 10000;
+	
+	public static int STORAGE_MAX_PNRS = 10;
+	public static String STORAGE_PREFERENCE_FILE = "com.cbandi.pnr.history";
+	public static String STORAGE_PREFERENCE_KEY = "com.cbandi.pnr.history.pnr";
+	public static String STORAGE_HISTORY_PNR_SEP = "\\|";
 	
 	public static final String STATUS_MESSAGE_GENERIC_ERROR = "An error occurred while getting the pnr status. Please try again";
 	public static final String STATUS_MESSAGE_NO_CONNECTION = "No internet connection";

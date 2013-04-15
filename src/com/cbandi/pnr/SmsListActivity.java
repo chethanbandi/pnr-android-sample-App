@@ -11,21 +11,16 @@ public class SmsListActivity extends FragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.activity_sms_list);
+		setContentView(R.layout.list_container);
 		
-		ArrayList<String> messages = SmsHandler.getIrctcSms(this.getApplicationContext());
+		ArrayList<String> messages = getIntent().getStringArrayListExtra(C.INTENT_KEY_SMS_LIST);
 		
-		if(messages.size() == 0) {
-			SmsEmptyFragment fragment = new SmsEmptyFragment();
-			getSupportFragmentManager().beginTransaction().replace(R.id.sms_activity_container, fragment).commit();
-		} else {
-			SmsListFragment fragment = new SmsListFragment();
-			
-			Bundle args = new Bundle();
-			args.putStringArrayList(C.INTENT_SMS_LIST_KEY, messages);
-			
-			fragment.setArguments(args);
-			getSupportFragmentManager().beginTransaction().replace(R.id.sms_activity_container, fragment).commit();
-		}
+		SmsListFragment fragment = new SmsListFragment();
+		
+		Bundle args = new Bundle();
+		args.putStringArrayList(C.INTENT_KEY_SMS_LIST, messages);
+		
+		fragment.setArguments(args);
+		getSupportFragmentManager().beginTransaction().replace(R.id.sms_activity_container, fragment).commit();
 	}
 }

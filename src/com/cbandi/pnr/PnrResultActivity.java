@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -26,32 +27,31 @@ public class PnrResultActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_pnr_result);
+		setContentView(R.layout.pnr_result);
 		
 		Intent intent = getIntent();
-		String pnr = intent.getStringExtra(C.INTENT_PNR_KEY);
+		BigInteger pnr = new BigInteger(intent.getStringExtra(C.INTENT_KEY_PNR));
 		getPNR(pnr);
 	}
 	
-    public String getPNR(String pnr) {
+    public void getPNR(BigInteger pnr) {
 		Log.d(C.DEBUG_TAG, "PNR number is " + pnr);
-		
+/*		
+		ArrayList<Integer> pnrHistory = getIntent().getIntegerArrayListExtra(C.INTENT_KEY_HISTORY_LIST);
+		pnrHistory.add(0, pnr);
+*/		
     	ConnectivityManager mgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
     	NetworkInfo networkInfo = mgr.getActiveNetworkInfo();
     	
     	if(networkInfo != null && networkInfo.isConnected()) {
     		new DownloadWebpageText().execute(pnr);
     	} else {
-    		TextView resultView = (TextView)findViewById(R.id.pnr_result_view);
-			resultView.setText(C.STATUS_MESSAGE_GENERIC_ERROR);
-
     		Log.d(C.DEBUG_TAG, "There is no network");
+    		Util.showAlert(this, C.STATUS_MESSAGE_NO_CONNECTION, true);
     	}
-    	
-		return null;
     }
     
-	private class DownloadWebpageText extends AsyncTask<String, String, JSONObject> {
+	private class DownloadWebpageText extends AsyncTask<BigInteger, BigInteger, JSONObject> {
 		private final ProgressDialog progress = new ProgressDialog(PnrResultActivity.this);
 		
 		@Override
@@ -61,7 +61,7 @@ public class PnrResultActivity extends Activity {
 		}
 		
 		@Override
-		protected JSONObject doInBackground(String... pnr) {
+		protected JSONObject doInBackground(BigInteger... pnr) {
 			try {
 				String url = C.PNR_URL + pnr[0];
 				

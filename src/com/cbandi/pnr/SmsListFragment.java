@@ -16,12 +16,12 @@ public class SmsListFragment extends ListFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		ArrayList<String> messages = getArguments().getStringArrayList(C.INTENT_SMS_LIST_KEY);
+		ArrayList<String> messages = getArguments().getStringArrayList(C.INTENT_KEY_SMS_LIST);
 
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), R.layout.sms_list_item, messages);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, messages);
 		setListAdapter(adapter);
 
-		return inflater.inflate(R.layout.fragment_sms_list, container, false);
+		return inflater.inflate(R.layout.list, container, false);
 	}
 	
 	@Override
@@ -31,7 +31,7 @@ public class SmsListFragment extends ListFragment {
 		String pnr = travelData.get(SmsHandler.TRAVEL_DATA_PNR_KEY);
 
 		Intent intent = new Intent(getActivity(), PnrResultActivity.class);
-		intent.putExtra(C.INTENT_PNR_KEY, pnr);
+		intent.putExtra(C.INTENT_KEY_PNR, pnr);
 		
 		startActivity(intent);
 	}
