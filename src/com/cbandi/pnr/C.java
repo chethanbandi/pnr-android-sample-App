@@ -13,12 +13,7 @@ public class C {
 	public static final String PNR_QUERY_METHOD = "GET";
 	public static final int PNR_QUERY_CONN_TIMEOUT = 15000;
 	public static final int PNR_QUERY_READ_TIMEOUT = 10000;
-	
-	public static int STORAGE_MAX_PNRS = 10;
-	public static String STORAGE_PREFERENCE_FILE = "com.cbandi.pnr.history";
-	public static String STORAGE_PREFERENCE_KEY = "com.cbandi.pnr.history.pnr";
-	public static String STORAGE_HISTORY_PNR_SEP = "\\|";
-	
+		
 	public static final String STATUS_MESSAGE_GENERIC_ERROR = "An error occurred while getting the pnr status. Please try again";
 	public static final String STATUS_MESSAGE_NO_CONNECTION = "No internet connection";
 	

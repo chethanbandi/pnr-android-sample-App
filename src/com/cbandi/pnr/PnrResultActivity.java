@@ -34,13 +34,30 @@ public class PnrResultActivity extends Activity {
 		getPNR(pnr);
 	}
 	
+	@Override
+	public void onPause() {
+		super.onPause();
+		
+		HistoryManager historyManager = HistoryManager.getInstance();
+		historyManager.save(this);
+
+		Log.d(C.DEBUG_TAG, "Inside PnrResultAtivity::onPause");
+	}
+	
+	@Override
+	public void onStop() {
+		super.onStop();
+		
+		Log.d(C.DEBUG_TAG, "Inside PnrResultActivity::onStop");
+	}
+		
     public void getPNR(BigInteger pnr) {
 		Log.d(C.DEBUG_TAG, "PNR number is " + pnr);
-/*		
-		ArrayList<Integer> pnrHistory = getIntent().getIntegerArrayListExtra(C.INTENT_KEY_HISTORY_LIST);
-		pnrHistory.add(0, pnr);
-*/		
-    	ConnectivityManager mgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		
+		HistoryManager historyManager = HistoryManager.getInstance();
+		historyManager.add(pnr);
+
+		ConnectivityManager mgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
     	NetworkInfo networkInfo = mgr.getActiveNetworkInfo();
     	
     	if(networkInfo != null && networkInfo.isConnected()) {
