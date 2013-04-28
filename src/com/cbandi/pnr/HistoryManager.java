@@ -39,7 +39,7 @@ public class HistoryManager {
 			if(size < STORAGE_MAX_PNRS) {
 				this.pnrs.add(0, pnr.toString());
 			} else {
-				this.pnrs.remove(STORAGE_MAX_PNRS);
+				this.pnrs.remove(STORAGE_MAX_PNRS-1);
 				this.pnrs.add(0, pnr.toString());
 			}
 		} else {
